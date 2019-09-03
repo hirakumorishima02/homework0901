@@ -11,18 +11,26 @@ function fizzBuzzforeach($n)
         case $i % 5 == 0:
             echo 'Buzz'.PHP_EOL;
             break;
+        // ここは最小公倍数を使うと1回で判定できます
+        // &&で繋ぐ場合、式が1回ずつ、合計2回評価されます
         case $i % 3 == 0 && $i % 5 == 0:
             echo 'FizzBuzz'.PHP_EOL;
             break;
         case $i % 3 != 0 && $i % 5 != 0:
             echo $i . PHP_EOL;
             break;
-    }
+        //　インデントは可読性のために合わせるのがgoodです
+
+        // swtichで書くときは想定外の変更に備えて
+        // defaultも設けておくのがベターです
+        }
     }
 }
 
 // fizzBuzzfor
 function fizzBuzzfor($n){
+    // rangeを使うよりこっちの方がgoodですね
+    // rangeの場合、nの値によっては一度大きな配列を作ることになるためメモリを無駄に使うことになります
     for ($i=1; $i<=$n; ++$i) {
         switch ($i) {
             case $i % 3 == 0:
@@ -42,6 +50,7 @@ function fizzBuzzfor($n){
 }
 // fizzBuzzgoto
 function fizzBuzzgoto($n){ // goto文は使いこなせませんでした…。
+    // gotoはあまり使うことがないので大丈夫です！
     $i = 0;
     num:
     $i++;
