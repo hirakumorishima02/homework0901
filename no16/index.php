@@ -13,14 +13,15 @@ function fizzBuzzforeach($n)
             break;
         // ここは最小公倍数を使うと1回で判定できます
         // &&で繋ぐ場合、式が1回ずつ、合計2回評価されます
-        case $i % 3 == 0 && $i % 5 == 0:
+        case $i % 15 == 0: // 3と5の最小公倍数 = 15
             echo 'FizzBuzz'.PHP_EOL;
             break;
         case $i % 3 != 0 && $i % 5 != 0:
             echo $i . PHP_EOL;
             break;
         //　インデントは可読性のために合わせるのがgoodです
-
+        default:
+            echo '整数のみを入力してください。';
         // swtichで書くときは想定外の変更に備えて
         // defaultも設けておくのがベターです
         }
